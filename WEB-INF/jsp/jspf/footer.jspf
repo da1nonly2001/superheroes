@@ -1,0 +1,15 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: catop
+  Date: 4/13/15
+--%>
+    <div class="clear">&nbsp;</div>
+    <footer class="clear">
+        <div class="row">
+            <div class="col12">
+                <p>Provide feedback here (remove underscores): ${initParam.email}</p>
+                <p>Source code for this site can be found <a href="http://something.github.com">here</a></p>
+            </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+    </footer>

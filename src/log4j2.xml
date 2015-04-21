@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="1800">
+    <Properties>
+        <Property name="filename">superheroes.log</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} %-5level %C{1}.%M %m %ex%n"/>
+        </Console>
+        <File name="Superheroes" fileName="${filename}">
+            <PatternLayout pattern="%d{HH:mm:ss} %-5level %C{1}.%M %m %ex%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="TRACE">
+            <AppenderRef ref="Superheroes"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

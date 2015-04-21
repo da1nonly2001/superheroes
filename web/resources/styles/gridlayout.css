@@ -1,0 +1,83 @@
+/**
+ * Created by catop.
+ */
+
+#page_wrapper {
+    max-width: 960px;
+    margin: 0px auto;
+}
+
+.row {
+    width: 100%;
+    margin: 5px 0px;
+    clear: both;
+}
+
+div.row:first-of-type {
+    margin: 0px;
+}
+
+.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+    padding: 0px;
+    margin: 0% 0.5%;
+    float: left;
+    word-break: break-all;
+}
+
+.col12 {
+    width: 100%;
+}
+.col11 {
+    width: 91.58%;
+}
+.col10 {
+    width: 83.17%;
+}
+.col9 {
+    width: 74.75%;
+}
+.col8 {
+    width: 66.33%;
+}
+.col7 {
+    width: 57.92%;
+}
+.col6 {
+    width: 49.5%;
+}
+.col5 {
+    width: 41.08%;
+}
+.col4 {
+    width: 32.67%;
+}
+.col3 {
+    width: 24.25%;
+}
+.col2 {
+    width: 15.83%;
+}
+.col1 {
+    width: 7.42%;
+}
+
+
+/**
+ * Small devices.
+ */
+@media screen and (max-width: 960px) {
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11 {
+        float: none;
+        width: 99%;
+        margin: auto;
+        clear: both;
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 980px){
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11 {
+        float: none;
+        width: 99%;
+        margin: auto;
+        clear: both;
+    }
+}

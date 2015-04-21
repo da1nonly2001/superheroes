@@ -1,0 +1,152 @@
+/**
+ * Created by catop.
+ */
+
+html {
+    background-color: #909090;
+}
+
+html, table {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    color: #444444;
+}
+
+p {
+    word-break: normal;
+}
+
+h1, h3, nav {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+h1 {
+    font-size: 50pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+h2 {
+    font-size: 40pt;
+    padding: 0px;
+    margin: 0px;
+    word-break: normal;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    background-color: #909090;
+    border-top: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+    border-left: none;
+    border-right: none;
+    padding: 10px 0px;
+}
+
+nav, input[type=text], input[type=submit] {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #333333;
+}
+
+input[type=text] {
+    border: 4px solid #333333;
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px;
+}
+
+a, a:visited {
+    color: #444444;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #909090;
+}
+
+h1 a, h1 a:visited {
+    color: #444444;
+    text-decoration: none;
+}
+
+a:hover, h1 a:hover {
+    color: #CCD5C5;
+}
+
+li {
+    word-break: normal;
+}
+
+header {
+    text-align: center;
+}
+
+header img {
+    margin: 0px;
+}
+
+footer {
+    text-align: center;
+    font-size: small;
+    padding: 0px;
+    margin: 0px;
+    border-top: 2px solid #333333;
+}
+
+.clear {
+    clear: both;
+}
+
+.hide {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.thumbnail {
+    text-align: right;
+}
+
+.full-thumbnail {
+    text-align: center;
+}
+
+.thumbnail img {
+    max-width: 395px;
+}
+
+.full-thumbnail img {
+    max-width: 798px;
+}
+
+.border {
+    border-radius: 5px;
+    border: 1px solid #333333;
+    box-shadow: 0px 0px 5px #333333;
+}
+
+#page_wrapper {
+    border: 2px solid #333333;
+    box-shadow: 0px 0px 5px #333333;
+    border-radius: 5px;
+    background-color: #FCFCFC;
+}

@@ -1,0 +1,24 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: catop
+  Date: 4/13/15
+--%>
+
+    <header>
+        <div class="row">
+            <div class="col12">
+                <h1 class="pointer italic"><a href="/">HERO LIBRARY</a></h1>
+                <img class="pointer" src="web/resources/media/heromask_900px.jpg" height="243" width="600" alt="mask" onclick="window.location.href='/'"/>
+            </div>
+        </div>
+
+        <div class="clear">&nbsp;</div>
+
+        <div class="errors hide">
+            <ul>
+                <c:forEach items="${validationErrors}" var="error">
+                    <li><c:out value="${error.message}" /></li>
+                </c:forEach>
+            </ul>
+        </div>
+    </header>

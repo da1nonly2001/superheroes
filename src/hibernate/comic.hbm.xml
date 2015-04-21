@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+        <class name="superheroes.entity.Comic" table="superheroes.comic">
+                <id column="id" name="id" type="java.lang.Integer">
+                        <generator class="assigned"/>
+                </id>
+                <property name="digitalId" column="digital_id" type="java.lang.Long"/>
+                <property name="title" column="title" type="java.lang.String"/>
+                <property name="issueNumber" column="issue_number" type="java.lang.Integer"/>
+                <property name="variantDescription" column="variant_description" type="java.lang.String"/>
+                <property name="description" column="description" type="java.lang.String"/>
+                <property name="modified" column="modified" type="java.util.Date"/>
+                <property name="isbn" column="isbn" type="java.lang.String"/>
+                <property name="upc" column="upc" type="java.lang.String"/>
+                <property name="diamondCode" column="diamond_code" type="java.lang.String"/>
+                <property name="ean" column="ean" type="java.lang.String"/>
+                <property name="issn" column="issn" type="java.lang.String"/>
+                <property name="format" column="format" type="java.lang.String"/>
+                <property name="pageCount" column="page_count" type="java.lang.Integer"/>
+                <property name="resourceUri" column="resource_uri" type="java.lang.String"/>
+                <property name="onSaleDate" column="on_sale_date" type="java.util.Date"/>
+                <property name="focDate" column="foc_date" type="java.util.Date"/>
+                <property name="printPrice" column="print_price" type="java.lang.Float"/>
+                <property name="thumbnailPath" column="thumbnail_path" type="java.lang.String"/>
+                <property name="thumbnailExtension" column="thumbnail_extension" type="java.lang.String"/>
+                <property name="updated" column="updated" type="java.util.Date"/>
+                <property name="popularity" column="popularity" type="java.lang.Integer"/>
+
+                <set name="textObjects" table="text_object" inverse="true" lazy="true" fetch="select">
+                        <key>
+                                <column name="comic_id_fk" not-null="true" />
+                        </key>
+                        <one-to-many class="superheroes.entity.TextObject"/>
+                </set>
+
+                <set name="series" table="comic_series_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="comic_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Series">
+                                <column name="series_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="creators" table="comic_creator_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="comic_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Creator">
+                                <column name="creator_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="characters" table="character_comic_junction" inverse="true" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="comic_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Character">
+                                <column name="character_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="stories" table="comic_story_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="comic_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Story">
+                                <column name="story_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="events" table="comic_event_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="comic_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Event">
+                                <column name="event_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+        </class>
+</hibernate-mapping>

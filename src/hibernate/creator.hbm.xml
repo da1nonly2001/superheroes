@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+        <class name="superheroes.entity.Creator" table="superheroes.creator">
+                <id column="id" name="id" type="java.lang.Integer">
+                        <generator class="assigned"/>
+                </id>
+
+                <property column="first_name" name="firstName" type="java.lang.String"/>
+                <property column="middle_name" name="middleName" type="java.lang.String"/>
+                <property column="last_name" name="lastName" type="java.lang.String"/>
+                <property column="suffix" name="suffix" type="java.lang.String"/>
+                <property column="full_name" name="fullName" type="java.lang.String"/>
+                <property column="modified" name="modified" type="java.util.Date"/>
+                <property column="thumbnail_path" name="thumbnailPath" type="java.lang.String"/>
+                <property column="thumbnail_extension" name="thumbnailExtension" type="java.lang.String"/>
+                <property column="resource_uri" name="resourceUri" type="java.lang.String"/>
+                <property column="updated" name="updated" type="java.util.Date"/>
+                <property name="popularity" column="popularity" type="java.lang.Integer"/>
+
+                <set name="comics" table="comic_creator_junction" inverse="true" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="creator_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Comic">
+                                <column name="comic_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="series" table="creator_series_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="creator_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Series">
+                                <column name="series_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="stories" table="creator_story_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="creator_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Story">
+                                <column name="story_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="events" table="event_creator_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="creator_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Event">
+                                <column name="event_id" not-null="true" />
+                        </many-to-many>
+                </set>
+
+                <set name="urls" table="creator_url_junction" inverse="false" lazy="true" fetch="select" cascade="all">
+                        <key>
+                                <column name="creator_id" not-null="true" />
+                        </key>
+                        <many-to-many entity-name="superheroes.entity.Url">
+                                <column name="url_id" not-null="true" />
+                        </many-to-many>
+                </set>
+        </class>
+</hibernate-mapping>
