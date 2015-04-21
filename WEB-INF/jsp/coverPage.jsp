@@ -29,7 +29,7 @@
                 <ul>
                     <c:forEach items="${characters}" var="character">
                         <li>
-                            <a href="/character?id=${character.id}">${character.name}</a>
+                            <a href="/superheroes/character?id=${character.id}">${character.name}</a>
                         </li>
                     </c:forEach>
                 </ul>
@@ -40,7 +40,7 @@
                 <ul>
                     <c:forEach items="${stories}" var="story">
                         <li>
-                            <a href="/story?id=${story.id}">${story.title}</a>
+                            <a href="/superheroes/story?id=${story.id}">${story.title}</a>
                         </li>
                     </c:forEach>
                 </ul>
@@ -55,7 +55,7 @@
                 <ul>
                     <c:forEach items="${comics}" var="comic">
                         <li>
-                            <a href="/comic?id=${comic.id}">${comic.title}</a>
+                            <a href="/superheroes/comic?id=${comic.id}">${comic.title}</a>
                         </li>
                     </c:forEach>
                 </ul>
@@ -66,7 +66,7 @@
                 <ul>
                     <c:forEach items="${events}" var="event">
                         <li>
-                            <a href="/event?id=${event.id}">${event.title}</a>
+                            <a href="/superheroes/event?id=${event.id}">${event.title}</a>
                         </li>
                     </c:forEach>
                 </ul>

@@ -66,7 +66,7 @@
                         <tbody>
                         <c:forEach var="character" items="${story.characters}">
                             <tr>
-                                <td><a href="/character?id=${character.id}">${character.name}</a></td>
+                                <td><a href="/superheroes/character?id=${character.id}">${character.name}</a></td>
                                 <td><div>${character.description}</div></td>
                             </tr>
                         </c:forEach>
@@ -107,7 +107,7 @@
                         <tbody>
                         <c:forEach var="series" items="${story.series}">
                             <tr>
-                                <td><a href="/series?id=${series.id}">${series.title}</a></td>
+                                <td><a href="/superheroes/series?id=${series.id}">${series.title}</a></td>
                                 <td><div>${series.description}</div></td>
                             </tr>
                         </c:forEach>
@@ -148,7 +148,7 @@
                         <tbody>
                         <c:forEach var="comic" items="${story.comics}">
                             <tr>
-                                <td><a href="/comic?id=${comic.id}">${comic.title}</a></td>
+                                <td><a href="/superheroes/comic?id=${comic.id}">${comic.title}</a></td>
                                 <td><div>${comic.description}</div></td>
                             </tr>
                         </c:forEach>
@@ -189,7 +189,7 @@
                         <tbody>
                         <c:forEach var="event" items="${story.events}">
                             <tr>
-                                <td><a href="/event?id=${event.id}">${event.title}</a></td>
+                                <td><a href="/superheroes/event?id=${event.id}">${event.title}</a></td>
                                 <td><div>${event.description}</div></td>
                             </tr>
                         </c:forEach>
@@ -227,7 +227,7 @@
                             <c:if test="${status.index == 5}">
                                 <li><a class="js-creators-more pointer">CLICK TO LOAD MORE CREATORS</a></li>
                             </c:if>
-                            <li class="<c:if test="${status.index >= 5}">hide</c:if>"><a href="/creator?id=${creator.id}">${creator.fullName}</a></li>
+                            <li class="<c:if test="${status.index >= 5}">hide</c:if>"><a href="/superheroes/creator?id=${creator.id}">${creator.fullName}</a></li>
                         </c:forEach>
                     </ul>
                 </div>

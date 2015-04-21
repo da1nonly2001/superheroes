@@ -46,7 +46,7 @@
                             <p>Characters</p>
                             <ul>
                                 <c:forEach var="character" items="${characters}">
-                                    <li><a href="/character?id=${character.id}">${character.name}</a></li>
+                                    <li><a href="/superheroes/character?id=${character.id}">${character.name}</a></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -61,7 +61,7 @@
                             <p>Comics</p>
                             <ul>
                                 <c:forEach var="comic" items="${comics}">
-                                    <li><a href="/comic?id=${comic.id}">${comic.title}</a></li>
+                                    <li><a href="/superheroes/comic?id=${comic.id}">${comic.title}</a></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -76,7 +76,7 @@
                             <p>Events</p>
                             <ul>
                                 <c:forEach var="event" items="${events}">
-                                    <li><a href="/event?id=${event.id}">${event.title}</a></li>
+                                    <li><a href="/superheroes/event?id=${event.id}">${event.title}</a></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -91,7 +91,7 @@
                             <p>Series</p>
                             <ul>
                                 <c:forEach var="seriez" items="${series}">
-                                    <li><a href="/series?id=${seriez.id}">${seriez.title}</a></li>
+                                    <li><a href="/superheroes/series?id=${seriez.id}">${seriez.title}</a></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -106,7 +106,7 @@
                             <p>Stories</p>
                             <ul>
                                 <c:forEach var="story" items="${stories}">
-                                    <li><a href="/story?id=${story.id}">${story.title}</a></li>
+                                    <li><a href="/superheroes/story?id=${story.id}">${story.title}</a></li>
                                 </c:forEach>
                             </ul>
                         </div>

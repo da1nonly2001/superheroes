@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface CharacterDao {
 
-
     public void saveCharacter(Character character);
 
     public void updateCharacter(Character character);

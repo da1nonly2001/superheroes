@@ -24,7 +24,7 @@
             <div class="col1">&nbsp;</div>
             <div class="col10">
                 <h2>Oops, that page doesn't exist!</h2>
-                <p>Click <a href="/">here</a> to navigate to the cover page where you will find more options.  Additional options can be found in the footer of this page.</p>
+                <p>Click <a href="/superheroes/">here</a> to navigate to the cover page where you will find more options.  Additional options can be found in the footer of this page.</p>
             </div>
             <div class="col1">&nbsp;</div>
         </div>

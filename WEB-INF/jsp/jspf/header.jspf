@@ -7,8 +7,8 @@
     <header>
         <div class="row">
             <div class="col12">
-                <h1 class="pointer italic"><a href="/">HERO LIBRARY</a></h1>
-                <img class="pointer" src="web/resources/media/heromask_900px.jpg" height="243" width="600" alt="mask" onclick="window.location.href='/'"/>
+                <h1 class="pointer italic"><a href="/superheroes/">HERO LIBRARY</a></h1>
+                <img class="pointer" src="web/resources/media/heromask_900px.jpg" height="243" width="600" alt="mask" onclick="window.location.href='/superheroes/'"/>
             </div>
         </div>
 

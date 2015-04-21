@@ -43,7 +43,7 @@
                         <tbody>
                         <c:forEach var="comic" items="${creator.comics}">
                             <tr>
-                                <td><a href="/comic?id=${comic.id}">${comic.title}</a></td>
+                                <td><a href="/superheroes/comic?id=${comic.id}">${comic.title}</a></td>
                                 <td><div>${comic.description}</div></td>
                             </tr>
                         </c:forEach>
@@ -84,7 +84,7 @@
                         <tbody>
                         <c:forEach var="series" items="${creator.series}">
                             <tr>
-                                <td><a href="/series?id=${series.id}">${series.title}</a></td>
+                                <td><a href="/superheroes/series?id=${series.id}">${series.title}</a></td>
                                 <td><div>${series.description}</div></td>
                             </tr>
                         </c:forEach>
@@ -126,7 +126,7 @@
                         <c:forEach var="story" items="${creator.stories}">
                             <c:if test="${!empty story.title}">
                                 <tr>
-                                    <td><a href="/story?id=${story.id}">${story.title}</a></td>
+                                    <td><a href="/superheroes/story?id=${story.id}">${story.title}</a></td>
                                     <td><div>${story.description}</div></td>
                                 </tr>
                             </c:if>
@@ -168,7 +168,7 @@
                         <tbody>
                         <c:forEach var="event" items="${creator.events}">
                             <tr>
-                                <td><a href="/event?id=${event.id}">${event.title}</a></td>
+                                <td><a href="/superheroes/event?id=${event.id}">${event.title}</a></td>
                                 <td><div>${event.description}</div></td>
                             </tr>
                         </c:forEach>

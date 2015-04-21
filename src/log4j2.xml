@@ -14,7 +14,7 @@
     </Appenders>
 
     <Loggers>
-        <Root level="TRACE">
+        <Root level="WARN">
             <AppenderRef ref="Superheroes"/>
         </Root>
     </Loggers>

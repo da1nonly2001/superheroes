@@ -26,10 +26,10 @@ public class SuperheroesController {
     private static final Logger LOGGER = LogManager.getLogger(SuperheroesController.class.getName());
 
     @Autowired
-    RequestService requestService;
+    private RequestService requestService;
 
     @Autowired
-    WebServiceClient webServiceClient;
+    private WebServiceClient webServiceClient;
 
     @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.GET)
