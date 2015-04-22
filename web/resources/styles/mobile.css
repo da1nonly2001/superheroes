@@ -1,3 +1,55 @@
 /**
  * Created by catop.
  */
+
+html, input[type=text], input[type=submit] {
+    font-size: 200%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+h3 {
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+ul {
+    margin-top: 0px;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+#page_wrapper {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+}
+
+.border {
+    border: none;
+    box-shadow: none;
+    margin: 0px;
+}
+
+.row {
+    margin: 0px;
+}
+
+.col1, .col2 {
+    display: none;
+}

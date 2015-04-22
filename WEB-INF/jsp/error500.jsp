@@ -9,11 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hero Library</title>
-    <link rel="stylesheet" type="text/css" href="web/resources/styles/gridlayout.css" />
-    <link rel="stylesheet" type="text/css" href="web/resources/styles/detect.css" />
-</head>
+<jsp:include page="jspf/head.jspf"/>
 <body>
     <div id="page_wrapper">
         <jsp:include page="jspf/header.jspf"/>

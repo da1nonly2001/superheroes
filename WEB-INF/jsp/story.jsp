@@ -9,13 +9,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hero Library</title>
-    <link rel="stylesheet" type="text/css" href="web/resources/styles/gridlayout.css" />
-    <link rel="stylesheet" type="text/css" href="web/resources/styles/detect.css" />
-    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="web/resources/scripts/gridlayout.js"></script>
-</head>
+<jsp:include page="jspf/head.jspf"/>
 <body>
     <div id="page_wrapper">
         <jsp:include page="jspf/header.jspf"/>
