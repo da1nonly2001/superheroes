@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <context:component-scan base-package="superheroes, superheroes.entity, superheroes.dao, superheroes.dao.impl, superheroes.service, superheroes.service.impl, superheroes.controller" />
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/superheroes"/>
+        <property name="user" value="XXX"/>
+        <property name="password" value="XXX"/>
+
+        <!-- c3p0 properties -->
+        <property name="acquireIncrement" value="1" />
+        <property name="minPoolSize" value="1" />
+        <property name="maxPoolSize" value="3" />
+        <!-- max idletime are 3 days -->
+        <property name="maxIdleTime" value="259200" />
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="superheroes.dao.impl" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.show_sql">false</prop>
+            </props>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>hibernate/character.hbm.xml</value>
+                <value>hibernate/comic.hbm.xml</value>
+                <value>hibernate/creator.hbm.xml</value>
+                <value>hibernate/event.hbm.xml</value>
+                <value>hibernate/series.hbm.xml</value>
+                <value>hibernate/story.hbm.xml</value>
+                <value>hibernate/textobject.hbm.xml</value>
+                <value>hibernate/url.hbm.xml</value>
+                <value>hibernate/key.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+</beans>
