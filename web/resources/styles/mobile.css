@@ -71,7 +71,7 @@ table th:first-child+th, table td:first-child+td {
     text-align: center;
 }
 
-.thumbnail img {
+.thumbnail img, .full-thumbnail img {
     max-width: 680px;
 }
 
