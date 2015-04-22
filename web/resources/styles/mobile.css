@@ -81,3 +81,7 @@ table th:first-child+th, table td:first-child+td {
     top: 10px;
     margin: 0px 10px;
 }
+
+.info-table {
+    display: none;
+}
