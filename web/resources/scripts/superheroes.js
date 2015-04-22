@@ -3,8 +3,8 @@
  */
 var superheroes =
 (function(jQuery){
-    var results = {};
     var $ = jQuery;
+    var MOBILE_WIDTH = 1000;
 
     init();
 
@@ -21,18 +21,20 @@ var superheroes =
     }
 
     function initBoxHeight() {
-        $(".js-height").each(function(){
-            var maxHeight = 0;
-            $(this).find(".border").each(function(){
-                var height = $(this).height();
-                if (height>maxHeight) {
-                    maxHeight = height;
-                }
+        if (!isMobile()) {
+            $(".js-height").each(function () {
+                var maxHeight = 0;
+                $(this).find(".border").each(function () {
+                    var height = $(this).height();
+                    if (height > maxHeight) {
+                        maxHeight = height;
+                    }
+                });
+                $(this).find(".border").each(function () {
+                    $(this).height(maxHeight);
+                });
             });
-            $(this).find(".border").each(function(){
-                $(this).height(maxHeight);
-            });
-        });
+        }
     }
 
     function initTables() {
@@ -55,5 +57,7 @@ var superheroes =
         });
     }
 
-    return results;
+    function isMobile() {
+        return $(document).width() <= MOBILE_WIDTH;
+    }
 }(jQuery));

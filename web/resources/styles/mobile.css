@@ -2,9 +2,10 @@
  * Created by catop.
  */
 
-html, input[type=text], input[type=submit] {
+html {
     font-size: 200%;
 }
+
 
 body {
     margin: 0px;
@@ -32,6 +33,18 @@ li {
     margin-bottom: 10px;
 }
 
+table, input[type=text], input[type=submit], select {
+    font-size: 20pt !important;
+}
+
+table th:first-child, table td:first-child {
+    width: 100%;
+}
+
+table th:first-child+th, table td:first-child+td {
+    display: none;
+}
+
 #page_wrapper {
     width: 100%;
     margin: 0px;
@@ -52,4 +65,19 @@ li {
 
 .col1, .col2 {
     display: none;
+}
+
+.thumbnail {
+    text-align: center;
+}
+
+.thumbnail img {
+    max-width: 680px;
+}
+
+.pager img {
+    width: 38px;
+    height: auto;
+    top: 10px;
+    margin: 0px 10px;
 }
