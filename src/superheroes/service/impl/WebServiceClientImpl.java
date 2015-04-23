@@ -41,13 +41,13 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
 
     private static Long lastWsCall = 0l;
 
-    private static String OFFSET_TOO_HIGH_ERROR = "The requested offset is higher than the available amount of entities, try lowering your offset value.";
+    private final static String OFFSET_TOO_HIGH_ERROR = "The requested offset is higher than the available amount of entities, try lowering your offset value.";
 
     private final static Integer MAX_LIMIT = 100;
 
-    private final Integer INITIAL_OFFSET = 0;
+    private final static Integer INITIAL_OFFSET = 0;
 
-    private final Integer REQUEST_AMOUNT = 100;
+    private final static Integer REQUEST_AMOUNT = 100;
 
     private final static Long sleepInterval = 1000l * 120; //120 seconds
     private final static Long snoozeInterval = 1000l * 90;
