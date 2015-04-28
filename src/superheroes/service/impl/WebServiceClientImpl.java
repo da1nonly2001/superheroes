@@ -35,7 +35,7 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
 
     private static Boolean hasStarted = Boolean.FALSE;
 
-    private static final Boolean enableAutoWsClient = Boolean.TRUE;
+    private static Boolean enableAutoWsClient = Boolean.TRUE;
 
     private static Integer wsCounter = 0;
 
@@ -49,9 +49,10 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
 
     private final static Integer REQUEST_AMOUNT = 100;
 
-    private final static Long sleepInterval = 1000l * 120; //120 seconds
-    private final static Long snoozeInterval = 1000l * 90;
-    private final static Long haltInterval = 1000l * 60;
+    private final static Long DAY_INTERVAL = 1000l * 60 * 60 * 24;
+    private final static Long SLEEP_INTERVAL = 1000l * 120;
+    private final static Long SNOOZE_INTERVAL = 1000l * 90;
+    private final static Long HALT_INTERVAL = 1000l * 60;
 
     private final static Queue<Integer> characterQueue = new LinkedList<>();
     private final static Queue<Integer> comicQueue = new LinkedList<>();
@@ -87,7 +88,7 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
     private static void halt() {
         LOGGER.trace("IN");
         try {
-            Thread.sleep(haltInterval);
+            Thread.sleep(HALT_INTERVAL);
         } catch (InterruptedException e) {
             LOGGER.error("Thread halt interrupted.", e);
         }
@@ -100,8 +101,6 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
             hasStarted = Boolean.TRUE;
 
             Runnable autoWsClient = new Runnable() {
-                private Logger LOGGER = LogManager.getLogger(Runnable.class.getName());
-
                 private Integer comicOffset = INITIAL_OFFSET;
                 private Integer characterOffset = INITIAL_OFFSET;
                 private Integer creatorOffset = INITIAL_OFFSET;
@@ -113,7 +112,7 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
                 private void sleep() {
                     LOGGER.trace("IN");
                     try {
-                        Thread.sleep(sleepInterval);
+                        Thread.sleep(SLEEP_INTERVAL);
                     } catch (InterruptedException e) {
                         continueParsing = Boolean.FALSE;
                         LOGGER.error("autoWsClient interrupted, shutting down parsing.", e);
@@ -214,7 +213,7 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
                 private void sleep() {
                     LOGGER.trace("IN");
                     try {
-                        Thread.sleep(sleepInterval);
+                        Thread.sleep(SLEEP_INTERVAL);
                     } catch (InterruptedException e) {
                         continueParsing = Boolean.FALSE;
                         LOGGER.error("parserUtil interrupted, shutting down parsing.", e);
@@ -224,7 +223,7 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
                 private void snooze() {
                     LOGGER.trace("IN");
                     try {
-                        Thread.sleep(snoozeInterval);
+                        Thread.sleep(SNOOZE_INTERVAL);
                     } catch (InterruptedException e) {
                         continueParsing = Boolean.FALSE;
                         LOGGER.error("autoWsClient interrupted, shutting down parsing.", e);
@@ -531,16 +530,36 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
                 }
             };
 
+            Runnable dailyCounterReset = new Runnable() {
+                private Boolean continueParsing = Boolean.TRUE;
+
+                @Override
+                public void run() {
+                    try {
+                        while (continueParsing) {
+                            Thread.sleep(DAY_INTERVAL);
+                            LOGGER.debug("Setting wsCounter to 0, was: " + wsCounter);
+                            wsCounter = 0;
+                        }
+                    } catch (InterruptedException e) {
+                        LOGGER.error("dailyCounterReset interrupted, stopping. ", e);
+                    }
+                }
+            };
+
             Thread generalPopulatorThread = new Thread(autoWsClient);
             generalPopulatorThread.setPriority(Thread.MIN_PRIORITY);
-            if (enableAutoWsClient) {
-                generalPopulatorThread.start();
-            }
 
             Thread specificPopulatorThread = new Thread(autoWsQueueClient);
             specificPopulatorThread.setPriority(Thread.MIN_PRIORITY);
+
+            Thread wsCounterResetThread = new Thread(dailyCounterReset);
+            wsCounterResetThread.setPriority(Thread.MIN_PRIORITY);
+
             if (enableAutoWsClient) {
+                generalPopulatorThread.start();
                 specificPopulatorThread.start();
+                wsCounterResetThread.start();
             }
         }
     }
@@ -610,7 +629,7 @@ public class WebServiceClientImpl implements WebServiceClient, ApplicationListen
             throw new IllegalStateException(error);
         }
 
-        if (new Date().getTime() - lastWsCall < haltInterval) {
+        if (new Date().getTime() - lastWsCall < HALT_INTERVAL) {
             LOGGER.debug("Web service calls happening too quickly, halting.");
             halt();
         }
