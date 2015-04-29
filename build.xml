@@ -32,5 +32,21 @@
     <target name="clean" description="clean up" >
         <delete dir="${build}"/>
     </target>
- 
+    
+    <target name="build" depends="clean,compile">
+        <war destfile = "superheroes.war" webxml = "WEB-INF/web.xml">
+            <lib dir="${lib}"/>
+            <classes dir="${build}"/>
+            <webinf dir="WEB-INF/">
+                <include name="applicationContext.xml" />
+            </webinf>
+            <webinf dir="WEB-INF/">
+                <include name="jsp/**/*.jsp" />
+                <include name="jsp/**/*.jspf" />
+            </webinf>
+            <fileset dir="" >
+                <include name="web/**/*.*"/>
+            </fileset>
+        </war>
+    </target>
 </project>
