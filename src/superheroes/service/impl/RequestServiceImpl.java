@@ -172,6 +172,7 @@ public class RequestServiceImpl implements RequestService {
                 || comic.getStories().isEmpty()) {
             LOGGER.debug("Comic.id=" + id + " may be incompletely populated: scheduled for further processing.");
             webServiceClient.addComicIdToQueue(id);
+            comic.setPopularity(comic.getPopularity() + 1);
         } else {
             comic.setPopularity(comic.getPopularity() + 1);
         }
@@ -243,6 +244,7 @@ public class RequestServiceImpl implements RequestService {
                 || creator.getComics().isEmpty()) {
             LOGGER.debug("Creator.id=" + id + " may be incompletely populated: scheduled for further processing.");
             webServiceClient.addCreatorIdToQueue(id);
+            creator.setPopularity(creator.getPopularity() + 1);
         } else {
             creator.setPopularity(creator.getPopularity() + 1);
         }
@@ -304,6 +306,7 @@ public class RequestServiceImpl implements RequestService {
                 || event.getCreators().isEmpty()) {
             LOGGER.debug("Event.id=" + id + " may be incompletely populated: scheduled for further processing.");
             webServiceClient.addEventIdToQueue(id);
+            event.setPopularity(event.getPopularity() + 1);
         } else {
             event.setPopularity(event.getPopularity() + 1);
         }
@@ -364,6 +367,7 @@ public class RequestServiceImpl implements RequestService {
                 || series.getEvents().isEmpty()) {
             LOGGER.debug("Series.id=" + id + " may be incompletely populated: scheduled for further processing.");
             webServiceClient.addSeriesIdToQueue(id);
+            series.setPopularity(series.getPopularity() + 1);
         } else {
             series.setPopularity(series.getPopularity() + 1);
         }
@@ -425,6 +429,7 @@ public class RequestServiceImpl implements RequestService {
                 || story.getSeries().isEmpty()) {
             LOGGER.debug("Story.id=" + id + " may be incompletely populated: scheduled for further processing.");
             webServiceClient.addStoryIdToQueue(id);
+            story.setPopularity(story.getPopularity() + 1);
         } else {
             story.setPopularity(story.getPopularity() + 1);
         }
