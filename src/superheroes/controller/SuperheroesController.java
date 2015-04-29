@@ -176,4 +176,28 @@ public class SuperheroesController {
 
         return modelAndView;
     }
+    
+    @ResponseBody
+    @RequestMapping(value = "/hvh", method = RequestMethod.GET)
+    public ModelAndView hvh() {
+        ModelAndView modelAndView = new ModelAndView("/WEB-INF/jsp/hvh.jsp");
+
+        return modelAndView;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView("/WEB-INF/jsp/home.jsp");
+
+        return modelAndView;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/categories", method = RequestMethod.GET)
+    public ModelAndView categories() {
+        ModelAndView modelAndView = new ModelAndView("/WEB-INF/jsp/categories.jsp");
+
+        return modelAndView;
+    }
 }

@@ -1,0 +1,85 @@
+.categories div
+{
+	display: inline-block;
+	height: 150px;
+	width: 150px;
+	border: 2px solid lightgrey;
+	margin: 0px 20px 40px 0px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.categories div span
+{
+	display: block;
+	margin-top: 65px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: white;
+}
+
+.section
+{
+	width: 68%;
+	margin: auto;
+}
+
+#aliens
+{
+	background: url("../media/aliens.jpg") 0px 0px no-repeat;
+	background-size: 150px;
+}
+
+#altered
+{
+	background: url("../media/alteredhuman.jpg") 0px 0px no-repeat;
+	background-size: 150px;
+}
+
+#deities
+{
+	background: url("../media/deities.jpg") -45px 0px no-repeat;
+	background-size: 355px;
+}
+
+#hero
+{
+	background: url("../media/herovhero.jpg") -45px 0px no-repeat;
+	background-size: 200px;
+}
+
+#heroVsVillain
+{
+	background: url("../media/heroesvsvillains.jpg") 0px 0px no-repeat;
+	background-size: 150px;
+}
+
+#humans
+{
+	background: url("../media/human.jpg") 0px 0px no-repeat;
+	background-size: 150px;
+}
+
+#all
+{
+	background: url("../media/overall.png") -35px 0px no-repeat;
+	background-size: 250px;
+}
+
+#mutants
+{
+	background: url("../media/mutants.jpg") -35px 0px no-repeat;
+	background-size: 250px;
+}
+
+#robots
+{
+	background: url("../media/robots.jpg") -80px 0px no-repeat;
+	background-size: 300px;
+}
+
+#villain
+{
+	background: url("../media/villains.jpg") -35px 0px no-repeat;
+	background-size: 200px;
+}
